@@ -10,6 +10,7 @@ if (process.argv.length === 2) {
 }
 
 function findFiles() {
+  
   searchFiles(cwd).forEach(file => {
     const content = fs.readFileSync(file);
 
@@ -34,6 +35,12 @@ function searchFiles(dir) {
       }
     }
   });
+  
+  if (files.length === 0) {
+    console.log("Files not found")
+  }
+ 
+  
   return files;
 }
 
